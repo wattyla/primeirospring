@@ -1,19 +1,27 @@
 package com.wattyla.primeirospring.entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 @NoArgsConstructor
-@AllArgsConstructor
-@Data
+@Getter
+@EqualsAndHashCode
+@ToString
 @Entity
 public class Categoria implements Serializable {
 	
@@ -21,7 +29,18 @@ public class Categoria implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Setter
 	private Integer id;
+	@Setter
 	private String name;
+	
+	@JsonIgnore
+	@ManyToMany(mappedBy = "categorias")
+	private Set<Produto> produtos = new HashSet<>();
+
+	public Categoria(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 	
 }

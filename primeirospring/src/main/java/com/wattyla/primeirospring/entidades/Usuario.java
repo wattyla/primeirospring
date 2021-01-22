@@ -19,6 +19,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @NoArgsConstructor
+@Getter
 @EqualsAndHashCode
 @ToString
 @Entity
@@ -28,23 +29,22 @@ public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Getter @Setter
+	@Setter
 	private Integer id;
-	@Getter @Setter
+	@Setter
 	private String name;
-	@Getter @Setter
+	@Setter
 	private String email;
-	@Getter @Setter
+	@Setter
 	private String telefone;
-	@Getter @Setter
+	@Setter
 	private String senha;
-	@Getter
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
 	
 	public Usuario(Integer id, String name, String email, String telefone, String senha) {
-		super();
 		this.id = id;
 		this.name = name;
 		this.email = email;
