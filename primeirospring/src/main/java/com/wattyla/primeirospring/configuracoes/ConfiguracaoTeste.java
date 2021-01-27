@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Profile;
 
 import com.wattyla.primeirospring.entidades.Categoria;
 import com.wattyla.primeirospring.entidades.ItemPedido;
+import com.wattyla.primeirospring.entidades.Pagamento;
 import com.wattyla.primeirospring.entidades.Pedido;
 import com.wattyla.primeirospring.entidades.Produto;
 import com.wattyla.primeirospring.entidades.Usuario;
@@ -52,8 +53,8 @@ public class ConfiguracaoTeste implements CommandLineRunner{
 		Produto produto4 = new Produto(null, "PC Gamer", "Donec aliquet odio ac rhoncus cursus.", 1200.0, "");
 		Produto produto5 = new Produto(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 		
-		repositorioProduto.saveAll(Arrays.asList(produto1,produto2,produto3,produto4,produto5));
 		repositorioCategoria.saveAll(Arrays.asList(cat1,cat2,cat3));
+		repositorioProduto.saveAll(Arrays.asList(produto1,produto2,produto3,produto4,produto5));
 		
 		produto1.getCategorias().add(cat2);
 		produto2.getCategorias().add(cat1);
@@ -81,6 +82,11 @@ public class ConfiguracaoTeste implements CommandLineRunner{
 		ItemPedido oi4 = new ItemPedido(p3, produto5, 2, produto5.getPreco());
 		
 		repositorioItemPedido.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+		
+		Pagamento pagamento1 = new Pagamento(null, Instant.parse("2019-06-20T19:53:07Z"), p1);
+		p1.setPagamento(pagamento1);
+		repositorioPedido.save(p1);
+		
 	}
 	
 }

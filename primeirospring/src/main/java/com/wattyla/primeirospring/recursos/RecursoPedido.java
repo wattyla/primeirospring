@@ -13,7 +13,7 @@ import com.wattyla.primeirospring.entidades.Pedido;
 import com.wattyla.primeirospring.servicos.ServicoPedido;
 
 @RestController
-@RequestMapping(value = "/Pedidos")
+@RequestMapping(value = "/pedidos")
 public class RecursoPedido {
 	
 	@Autowired

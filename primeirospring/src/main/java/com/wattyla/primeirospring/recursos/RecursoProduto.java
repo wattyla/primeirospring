@@ -13,7 +13,7 @@ import com.wattyla.primeirospring.entidades.Produto;
 import com.wattyla.primeirospring.servicos.ServicoProduto;
 
 @RestController
-@RequestMapping(value = "/Produtos")
+@RequestMapping(value = "/produtos")
 public class RecursoProduto {
 	
 	@Autowired

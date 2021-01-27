@@ -13,7 +13,7 @@ import com.wattyla.primeirospring.entidades.Categoria;
 import com.wattyla.primeirospring.servicos.ServicoCategoria;
 
 @RestController
-@RequestMapping(value = "/Categorias")
+@RequestMapping(value = "/categorias")
 public class RecursoCategoria {
 	
 	@Autowired

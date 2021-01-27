@@ -23,4 +23,9 @@ public class ServicoUsuario {
 		Optional<Usuario> obj = repositorioUsuario.findById(id);
 		return obj.get();
 	}
+	
+	public Usuario salvar(Usuario usuario) {
+		return repositorioUsuario.save(usuario);
+		
+	}
 }

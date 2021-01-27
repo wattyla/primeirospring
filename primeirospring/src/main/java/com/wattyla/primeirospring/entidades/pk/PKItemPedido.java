@@ -21,11 +21,11 @@ public class PKItemPedido implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_pedido")
+	@JoinColumn(name = "id_pedido", referencedColumnName = "id")
 	private Pedido pedido;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_produto")
+	@JoinColumn(name = "id_produto", referencedColumnName = "id")
 	private Produto produto;
 	
 }
